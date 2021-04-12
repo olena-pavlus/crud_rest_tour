@@ -12,8 +12,8 @@ public class TouristService implements ITourist {
 
     TouristRepository touristRepository;
     @Autowired
-    public TouristService(TouristRepository touristrepo) {
-        this.touristRepository = touristrepo;
+    public TouristService(TouristRepository touristRepo) {
+        this.touristRepository = touristRepo;
     }
 
     @Override

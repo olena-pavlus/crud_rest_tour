@@ -23,7 +23,6 @@ public class TouristController {
     @GetMapping
     public Optional<Tourist> findTouristById(@RequestParam int touristID) {
         return touristService.findTouristById(touristID);
-
     }
 
     @PostMapping
@@ -39,7 +38,6 @@ public class TouristController {
     @DeleteMapping
     public void deleteTouristById(@RequestParam int touristID) {
         touristService.deleteTouristById(touristID);
-
     }
 
 
