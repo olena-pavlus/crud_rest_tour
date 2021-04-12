@@ -46,5 +46,11 @@ public class CityService implements ICity {
         cityRepository.deleteById(cityCode);
     }
 
+    @Override
+    public Optional<City> findCityByCountry(String countryName) {
+        // TODO Auto-generated method stub
+        return cityRepository.findCityByCountry(countryName);
+    }
+
 }
 

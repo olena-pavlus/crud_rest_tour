@@ -8,7 +8,8 @@ import com.pavlus.lab2.models.Tourist;
 @Repository
 public interface TouristRepository extends JpaRepository<Tourist, Integer> {
     // Query method
-//    Optional<Tourist> findByEmail(String email);
-//    Optional<Tourist> findByPhoneNumber(String phoneNumber);
+    Optional<Tourist> findTouristByLastName(String LastName);
+    Optional<Tourist> findTouristByEmail(String email);
+    Optional<Tourist> findTouristByPhoneNumber(String phoneNumber);
 }
 

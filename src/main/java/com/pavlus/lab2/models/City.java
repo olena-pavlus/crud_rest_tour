@@ -14,16 +14,14 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table//(name = "city")
+@Table(name = "city_tb")
 
 public class City implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int cityCode;
-    @Column
     private String cityName;
-    @Column
     private String countryName;
 
 }

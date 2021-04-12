@@ -8,6 +8,6 @@ import com.pavlus.lab2.models.City;
 @Repository
 public interface CityRepository extends JpaRepository<City, Integer> {
     // Query method
-
+    Optional<City> findCityByCountry(String countryName);
 }
 

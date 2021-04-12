@@ -9,37 +9,63 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tourist")
+@RequestMapping("/tourists")
 public class TouristController {
 
     @Autowired
     private TouristService touristService;
 
-    @GetMapping
+    @GetMapping("/")
     public List<Tourist> getAllTourists() {
         return touristService.getAllTourists();
     }
 
-    @GetMapping
-    public Optional<Tourist> findTouristById(@RequestParam int touristID) {
-        return touristService.findTouristById(touristID);
+    @GetMapping(value = "/userById/{id}")
+    public Optional<Tourist> findTouristById(@PathVariable int id) {
+        return touristService.findTouristById(id);
     }
 
-    @PostMapping
+    @GetMapping(value = "/userByLastName/{lastName}")
+    public Optional<Tourist> findTouristByLastName(@PathVariable String lastName) {
+        return touristService.findTouristByLastName(lastName);
+    }
+
+    @GetMapping(value = "/userByEmail/{email}")
+    public Optional<Tourist> findTouristByEmail(@PathVariable String email) {
+        return touristService.findTouristByEmail(email);
+    }
+
+    @GetMapping(value = "/userByPhoneNumber/{phoneNumber}")
+    public Optional<Tourist> findTouristByPhoneNumber(@PathVariable String phoneNumber) {
+        return touristService.findTouristByPhoneNumber(phoneNumber);
+    }
+
+    @PostMapping("/")
     public Tourist createTourist(@RequestBody Tourist tourist) {
         return touristService.createTourist(tourist);
     }
 
-    @PutMapping
-    public Tourist updateTourist(@RequestBody Tourist tourist) {
-        return touristService.updateTourist(tourist);
+//    @PutMapping(value="/")
+//    public Tourist updateTourist(@RequestBody Tourist tourist) {
+//        return touristService.updateTourist(tourist);
+//    }
+
+    @PutMapping("/{id}")
+    public Tourist updateTourist(@PathVariable int id, @RequestBody Tourist tourist)
+    {
+        Optional<Tourist> tourists = touristService.findTouristById(id);
+        Tourist tourist_new = tourists.get();
+        tourist_new.setFirstName(tourist.getFirstName());
+        tourist_new.setLastName(tourist.getLastName());
+        tourist_new.setEmail(tourist.getEmail());
+        tourist_new.setPhoneNumber(tourist.getPhoneNumber());
+        return touristService.updateTourist(tourist_new);
     }
 
-    @DeleteMapping
-    public void deleteTouristById(@RequestParam int touristID) {
-        touristService.deleteTouristById(touristID);
+    @DeleteMapping("/{id}")
+    public void deleteTouristById(@PathVariable int id) {
+        touristService.deleteTouristById(id);
     }
-
 
 }
 

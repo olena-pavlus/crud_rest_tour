@@ -46,17 +46,23 @@ public class TouristService implements ITourist {
         touristRepository.deleteById(touristID);
     }
 
-//    @Override
-//    public Optional<Tourist> findByEmail(String email) {
-//        // TODO Auto-generated method stub
-//        return touristRepository.findByEmail(email);
-//    }
-//
-//    @Override
-//    public Optional<Tourist> findByPhoneNumber(String phoneNumber) {
-//        // TODO Auto-generated method stub
-//        return touristRepository.findByPhoneNumber(phoneNumber);
-//    }
+    @Override
+    public Optional<Tourist> findTouristByLastName(String lastName) {
+        // TODO Auto-generated method stub
+        return touristRepository.findTouristByLastName(lastName);
+    }
+
+    @Override
+    public Optional<Tourist> findTouristByEmail(String email) {
+        // TODO Auto-generated method stub
+        return touristRepository.findTouristByEmail(email);
+    }
+
+    @Override
+    public Optional<Tourist> findTouristByPhoneNumber(String phoneNumber) {
+        // TODO Auto-generated method stub
+        return touristRepository.findTouristByPhoneNumber(phoneNumber);
+    }
 
 }
 

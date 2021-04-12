@@ -14,20 +14,16 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table//(name = "tourist")
+@Table(name = "tourist_tb")
 
 public class Tourist implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int touristID;
-    @Column
     private String firstName;
-    @Column
     private String lastName;
-    @Column
     private String phoneNumber;
-    @Column //(nullable = true, name = "email")
     private String email;
 }
 

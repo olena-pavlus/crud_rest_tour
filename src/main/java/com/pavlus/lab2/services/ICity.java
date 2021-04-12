@@ -11,5 +11,6 @@ public interface ICity {
     City createCity(City city);
     City updateCity(City city);
     void deleteCityByCode(int cityCode);
+    Optional<City> findCityByCountry(String countryName);
 
 }

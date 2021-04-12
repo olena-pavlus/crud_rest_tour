@@ -11,8 +11,7 @@ public interface ITourist {
     Tourist createTourist(Tourist tourist);
     Tourist updateTourist(Tourist tourist);
     void deleteTouristById(int touristID);
-
-//    Optional<Tourist> findByEmail(String email);
-//    Optional<Tourist> findByPhoneNumber(String email);
-
+    Optional<Tourist> findTouristByLastName(String lastName);
+    Optional<Tourist> findTouristByEmail(String email);
+    Optional<Tourist> findTouristByPhoneNumber(String email);
 }

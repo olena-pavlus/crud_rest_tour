@@ -11,5 +11,7 @@ public interface ITour {
     Tour createTour(Tour city);
     Tour updateTour(Tour city);
     void deleteTourByCode(int tourCode);
+    Optional<Tour> findTourByName(String tourName);
+    Optional<Tour> findTourByPrice(int price);
 
 }
