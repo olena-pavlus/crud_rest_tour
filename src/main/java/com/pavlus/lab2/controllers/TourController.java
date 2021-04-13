@@ -8,6 +8,7 @@ import com.pavlus.lab2.services.TourService;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:9191")
 @RestController
 @RequestMapping("/tours")
 public class TourController {
@@ -26,12 +27,12 @@ public class TourController {
     }
 
     @GetMapping(value = "/tourByName/{name}")
-    public Optional<Tour> findTourByName(@PathVariable String name) {
-        return tourService.findTourByName(name);
+    public Optional<Tour> findTourByTourName(@PathVariable String name) {
+        return tourService.findTourByTourName(name);
     }
 
     @GetMapping(value = "/tourByPrice/{price}")
-    public Optional<Tour> findTourByPrice(@PathVariable int price) {
+    public List<Optional<Tour>> findTourByPrice(@PathVariable int price) {
         return tourService.findTourByPrice(price);
     }
 
@@ -57,8 +58,8 @@ public class TourController {
         return tourService.updateTour(tour_new);
     }
 
-    @DeleteMapping
-    public void deleteTourByCode(@RequestParam int tourCode) {
+    @DeleteMapping("/{code}")
+    public void deleteTourByCode(@PathVariable int tourCode) {
         tourService.deleteTourByCode(tourCode);
     }
 

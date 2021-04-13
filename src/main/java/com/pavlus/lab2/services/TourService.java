@@ -1,29 +1,29 @@
 package com.pavlus.lab2.services;
 
-import java.util.List;
-import java.util.Optional;
-
 import com.pavlus.lab2.models.City;
+import com.pavlus.lab2.models.Tour;
 import com.pavlus.lab2.models.Tourist;
 import com.pavlus.lab2.repositories.CityRepository;
+import com.pavlus.lab2.repositories.TourRepository;
 import com.pavlus.lab2.repositories.TouristRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.pavlus.lab2.models.Tour;
-import com.pavlus.lab2.repositories.TourRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TourService implements ITour {
 
     TourRepository tourRepository;
-    @Autowired
-    private TouristRepository touristRepository;
-    @Autowired
-    private CityRepository cityRepository;
+    TouristRepository touristRepository;
+    CityRepository cityRepository;
 
     @Autowired
-    public TourService(TourRepository tourRepo) {
-        this.tourRepository = tourRepo;
+    public TourService(TourRepository tourRepository, TouristRepository touristRepository, CityRepository cityRepository) {
+        this.tourRepository = tourRepository;
+        this.touristRepository = touristRepository;
+        this.cityRepository = cityRepository;
     }
 
     @Override
@@ -74,13 +74,13 @@ public class TourService implements ITour {
     }
 
     @Override
-    public Optional<Tour> findTourByName(String tourName) {
+    public Optional<Tour> findTourByTourName(String tourName) {
         // TODO Auto-generated method stub
-        return tourRepository.findTourByName(tourName);
+        return tourRepository.findTourByTourName(tourName);
     }
 
     @Override
-    public Optional<Tour> findTourByPrice(int price) {
+    public List<Optional<Tour>> findTourByPrice(int price) {
         // TODO Auto-generated method stub
         return tourRepository.findTourByPrice(price);
     }

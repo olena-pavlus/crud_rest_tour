@@ -1,8 +1,9 @@
 package com.pavlus.lab2.services;
 
+import com.pavlus.lab2.models.City;
+
 import java.util.List;
 import java.util.Optional;
-import com.pavlus.lab2.models.City;
 
 public interface ICity {
 
@@ -11,6 +12,6 @@ public interface ICity {
     City createCity(City city);
     City updateCity(City city);
     void deleteCityByCode(int cityCode);
-    Optional<City> findCityByCountry(String countryName);
+    List<Optional<City>> findCityByCountryName(String countryName);
 
 }

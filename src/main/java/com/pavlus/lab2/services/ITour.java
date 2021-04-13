@@ -1,8 +1,9 @@
 package com.pavlus.lab2.services;
 
+import com.pavlus.lab2.models.Tour;
+
 import java.util.List;
 import java.util.Optional;
-import com.pavlus.lab2.models.Tour;
 
 public interface ITour {
 
@@ -11,7 +12,7 @@ public interface ITour {
     Tour createTour(Tour city);
     Tour updateTour(Tour city);
     void deleteTourByCode(int tourCode);
-    Optional<Tour> findTourByName(String tourName);
-    Optional<Tour> findTourByPrice(int price);
+    Optional<Tour> findTourByTourName(String tourName);
+    List<Optional<Tour>> findTourByPrice(int price);
 
 }

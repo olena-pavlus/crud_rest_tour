@@ -1,11 +1,12 @@
 package com.pavlus.lab2.services;
 
-import java.util.List;
-import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.pavlus.lab2.models.City;
 import com.pavlus.lab2.repositories.CityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CityService implements ICity {
@@ -47,9 +48,9 @@ public class CityService implements ICity {
     }
 
     @Override
-    public Optional<City> findCityByCountry(String countryName) {
+    public List<Optional<City>> findCityByCountryName(String countryName) {
         // TODO Auto-generated method stub
-        return cityRepository.findCityByCountry(countryName);
+        return cityRepository.findCityByCountryName(countryName);
     }
 
 }

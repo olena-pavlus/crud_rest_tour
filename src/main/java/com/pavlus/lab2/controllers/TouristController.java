@@ -8,6 +8,7 @@ import com.pavlus.lab2.services.TouristService;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:9191")
 @RestController
 @RequestMapping("/tourists")
 public class TouristController {
@@ -26,7 +27,7 @@ public class TouristController {
     }
 
     @GetMapping(value = "/userByLastName/{lastName}")
-    public Optional<Tourist> findTouristByLastName(@PathVariable String lastName) {
+    public List<Optional<Tourist>> findTouristByLastName(@PathVariable String lastName) {
         return touristService.findTouristByLastName(lastName);
     }
 

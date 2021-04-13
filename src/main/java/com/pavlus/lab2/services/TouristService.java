@@ -1,11 +1,12 @@
 package com.pavlus.lab2.services;
 
-import java.util.List;
-import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.pavlus.lab2.models.Tourist;
 import com.pavlus.lab2.repositories.TouristRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TouristService implements ITourist {
@@ -47,7 +48,7 @@ public class TouristService implements ITourist {
     }
 
     @Override
-    public Optional<Tourist> findTouristByLastName(String lastName) {
+    public List<Optional<Tourist>> findTouristByLastName(String lastName) {
         // TODO Auto-generated method stub
         return touristRepository.findTouristByLastName(lastName);
     }

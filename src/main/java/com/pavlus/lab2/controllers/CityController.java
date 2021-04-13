@@ -8,6 +8,7 @@ import com.pavlus.lab2.services.CityService;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:9191")
 @RestController
 @RequestMapping("/cities")
 public class CityController {
@@ -25,9 +26,9 @@ public class CityController {
         return cityService.findCityByCode(code);
     }
 
-    @GetMapping(value = "/cityByCountry/{country}")
-    public Optional<City> findCityByCountry(@PathVariable String country) {
-        return cityService.findCityByCountry(country);
+    @GetMapping(value = "/cityByCountry/{countryName}")
+    public List<Optional<City>> findCityByCountryName(@PathVariable String countryName) {
+        return cityService.findCityByCountryName(countryName);
     }
 
     @PostMapping("/")
@@ -46,15 +47,14 @@ public class CityController {
         Optional<City> cities = cityService.findCityByCode(code);
         City city_new = cities.get();
         city_new.setCityName(city.getCityName());
-        city_new.setCityName(city.getCityName());
+        city_new.setCountryName(city.getCountryName());
         return cityService.updateCity(city_new);
     }
 
     @DeleteMapping("/")
-    public void deleteCityByCode(@RequestParam int cityCode) {
+    public void deleteCityByCode(@PathVariable int cityCode) {
         cityService.deleteCityByCode(cityCode);
     }
-
 
 }
 
